@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("skills")
+@RequestMapping("/skills")
 public class SkillController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class SkillController {
     @GetMapping
     public String displayAllSkills(Model model){
         model.addAttribute("title", "All Skills");
-        model.addAttribute("employers", skillRepository.findAll());
+        model.addAttribute("skills", skillRepository.findAll());
         return "skills/index";
     }
 
@@ -41,7 +41,7 @@ public class SkillController {
         }
 
         skillRepository.save(newSkill);
-        return "redirect:";
+        return "redirect:/skills";
     }
 
     @GetMapping("view/{skillId}")
