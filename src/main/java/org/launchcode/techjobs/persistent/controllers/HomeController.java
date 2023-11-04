@@ -1,6 +1,7 @@
 package org.launchcode.techjobs.persistent.controllers;
 
 import jakarta.validation.Valid;
+import org.launchcode.techjobs.persistent.models.Employer;
 import org.launchcode.techjobs.persistent.models.Job;
 import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
 import org.launchcode.techjobs.persistent.models.data.JobRepository;
@@ -11,6 +12,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,7 +53,9 @@ public class HomeController {
             return "add";
         }
 
-        model.addAttribute("employerId", employerRepository.findById(employerId));
+        //Employer employer = employerRepository.findById(employerId);
+        model.addAttribute("employer", employerRepository.findById(employerId));
+       // newJob.setEmployer();
         jobRepository.save(newJob);
         return "redirect:";
     }

@@ -2,12 +2,9 @@ package org.launchcode.techjobs.persistent.models;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
 
-import java.util.List;
+import java.util.Optional;
 
 @Entity
 public class Job extends AbstractEntity {
