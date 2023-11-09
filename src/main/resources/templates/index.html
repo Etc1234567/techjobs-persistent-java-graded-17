@@ -9,8 +9,8 @@
 <div class="container body-content">
     <h2>Tech Jobs</h2>
     <ul>
-        <li th:each="skill : ${skills}">
-            <a th:href="@{'/skills/view/' + ${skill.id}}" th:text="${skill.name}"></a>
+        <li th:each="job : ${jobs}">
+            <a th:href="@{'/jobs/view/' + ${job.id}}" th:text="${job.name}"></a>
         </li>
     </ul>
 
