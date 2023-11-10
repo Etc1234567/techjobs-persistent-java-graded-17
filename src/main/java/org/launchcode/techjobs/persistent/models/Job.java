@@ -2,6 +2,7 @@ package org.launchcode.techjobs.persistent.models;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
 @Entity
 public class Job extends AbstractEntity {
 
-    @ManyToOne
+    @ManyToOne(fetch= FetchType.EAGER)
     private Employer employer;
 
     @ManyToMany
@@ -22,9 +23,10 @@ public class Job extends AbstractEntity {
     }
 
     // Initialize the id and value fields.
-    public Job(Employer anEmployer) {
+    public Job(Employer anEmployer, List<Skill> someSkills) {
         super();
         this.employer = anEmployer;
+        this.skills= someSkills;
     }
 
     // Getters and setters.

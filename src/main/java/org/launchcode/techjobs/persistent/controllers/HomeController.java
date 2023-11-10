@@ -60,9 +60,9 @@ public class HomeController {
             return "add";
         }
 
-        //Employer employer = employerRepository.findById(employerId).orElse(new Employer());
-        Optional<Employer> employer = employerRepository.findById(employerId);
-        newJob.setEmployer(employer.get());
+        Employer employer = employerRepository.findById(employerId).orElse(new Employer());
+        //Optional<Employer> employer = employerRepository.findById(employerId);
+        newJob.setEmployer(employer);
 
         //Had to cast as skill to remove error
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
