@@ -18,7 +18,7 @@ public class SkillController {
     @Autowired
     private SkillRepository skillRepository;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String index(Model model){
         model.addAttribute("title", "All Skills");
         model.addAttribute("skills", skillRepository.findAll());
@@ -41,7 +41,7 @@ public class SkillController {
         }
 
         skillRepository.save(newSkill);
-        return "redirect:/skills";
+        return "redirect:";
     }
 
     @GetMapping("view/{skillId}")

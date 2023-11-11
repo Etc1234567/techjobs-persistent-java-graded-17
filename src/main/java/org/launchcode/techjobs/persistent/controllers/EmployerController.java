@@ -18,7 +18,7 @@ public class EmployerController {
     @Autowired
     private EmployerRepository employerRepository;
 
-    @RequestMapping("")
+    @RequestMapping("/")
     public String index(Model model){
         model.addAttribute("title", "All Employers");
         model.addAttribute("employers", employerRepository.findAll());
@@ -41,7 +41,7 @@ public class EmployerController {
         }
 
         employerRepository.save(newEmployer);
-        return "redirect:/employers";
+        return "redirect:/employers/";
     }
 
     @GetMapping("view/{employerId}")
